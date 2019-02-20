@@ -1,0 +1,2 @@
+class NotEnoughDiskSpace(Exception):
+    pass
