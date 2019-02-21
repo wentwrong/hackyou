@@ -4,26 +4,26 @@ from hackyou.gameapp import GameApp
 from hackyou.gameserver import GameServer
 
 
-def test_install_app():
-    """ Trying to install app """
+def test_download_app():
+    """ Trying to download app """
 
     server = GameServer()
     app = GameApp(filetype="cracker")
 
-    server.install_app(app)
+    server.download_app(app)
 
-    assert True == server.is_app_installed(app)
+    assert True == server.has_app(app)
 
 
-def test_install_big_app():
-    """ Trying install to server app with size > disk space """
+def test_download_big_app():
+    """ Trying to download app with size > disk space """
 
     server = GameServer()
 
     app = GameApp(filetype="cracker", size=(server.hdd * 1000) + 1)
 
     with pytest.raises(NotEnoughDiskSpace):
-        server.start_app_install(app)
+        server.start_app_download(app)
 
 
 def test_crack_server_without_brute():
@@ -43,10 +43,11 @@ def test_crack_server_with_brute():
     firewall = GameApp(filetype="firewall")
     brute = GameApp(filetype="cracker", version=2)
 
-    attacker.install_app(brute)
-    victim.install_app(firewall)
+    attacker.download_app(brute)
+    victim.download_app(firewall)
 
     assert True == attacker.is_hackable(victim)
+
 
 def test_crack_server_with_pure_firewall():
     """ Trying to crack victim server with firewall > brute """
@@ -57,7 +58,7 @@ def test_crack_server_with_pure_firewall():
     firewall = GameApp(filetype="firewall", version=2)
     brute = GameApp(filetype="cracker", version=1)
 
-    attacker.install_app(brute)
-    victim.install_app(firewall)
+    attacker.download_app(brute)
+    victim.download_app(firewall)
 
     assert False == attacker.is_hackable(victim)
