@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     # TODO
     serv = gameserver.GameServer()
-    return render_template('index.html', serv = serv)
+    return render_template('server.html', server = serv)
 
 
 app.run(debug=True)

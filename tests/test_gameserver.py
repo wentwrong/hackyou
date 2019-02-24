@@ -50,7 +50,7 @@ def test_crack_server_with_brute():
 
 
 def test_crack_server_with_pure_firewall():
-    """ Trying to crack victim server with firewall > brute """
+    """ Trying to crack victim server with firewall version > cracker version """
 
     attacker = GameServer()
     victim = GameServer()
