@@ -1,15 +1,16 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block css %}{% endblock %}
+
     <title>{% block title %}{% endblock %} · HackYou</title>
 </head>
 
@@ -18,13 +19,13 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#">Server info</a></li>
-            <li class="breadcrumb-item"><a href="#">Something 1</a></li>
+            <li class="breadcrumb-item"><a href="#">Console</a></li>
             <li class="breadcrumb-item"><a href="#">Something 2</a></li>
         </ol>
     </nav>
 
     <div class="container d-flex flex-column h-100">
-        <main role="main">
+        <main>
             <div class="content">
                 {% block content %}{% endblock %}
             </div>
@@ -42,6 +43,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    {% block js %}{% endblock %}
 </body>
 
 </html>

@@ -1,0 +1,20 @@
+#console {
+    border: 1px solid #ccc;
+    padding: 4px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+#command {
+    flex-direction: row;
+    display: flex;
+}
+#cli_input {
+    margin-left: 3px;
+    color: #555;
+    background-color: transparent;
+    border: none;
+    flex-grow: 1;
+}
+#cli_input:focus {
+    outline: none;
+}

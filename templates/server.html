@@ -3,6 +3,7 @@
 {% block title %}Server information{% endblock %}
 
 {% block content %}
+
 <ul class="list-group">
     <li class="list-group-item d-flex justify-content-between align-items-center">
         Server IP
@@ -32,4 +33,26 @@
         <button type="submit" class="btn btn-primary mt-1">Save</button>
     </div>
 </form>
+
+<h5>Applications:</h5>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Size (MB)</th>
+            <th scope="col">Version</th>
+            <th scope="col">Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for app in server.apps %}
+        <tr>
+            <td>{{ app.name }}</td>
+            <td>{{ app.size }}</td>
+            <td>{{ app.version }}</td>
+            <td>{{ app.type }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
